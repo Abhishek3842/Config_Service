@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: clients-service
+  config:
+    import: optional:configserver:http://localhost:8086
   datasource:
     url: jdbc:postgresql://localhost:5432/client_db
     username: postgres
