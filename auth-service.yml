@@ -5,7 +5,7 @@ spring:
   application:
     name: auth-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/legal-advisor
+    url: jdbc:postgresql://localhost:5433/legal-advisor
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
