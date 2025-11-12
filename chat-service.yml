@@ -1,20 +1,27 @@
 server:
-  port: 8089  # Port for chat-service
+  port: 8089
 
 spring:
   application:
     name: chat-service
+  config:
+    import: optional:configserver:http://localhost:8086
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: chat_db
+    redis:
+      host: localhost
+      port: 6379
 
-  datasource:
-    url: jdbc:postgresql://localhost:5433/chat_db
-    username: postgres
-    password: postgres
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+jwt:
+  public-key: |
+    -----BEGIN PUBLIC KEY-----
+    MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDIuTHE/eTho3fMZQjifo29u6Ky02pc32CBEJnukVzVFnxF/TAOsA+JMOnORXtTHkcqB4EQ4EtjejbSOxAlDH+S5kl28eHuZbsKu3ISz3TMQKKKDeqon6fZ37N7+XJLxVvFgjAQAS6e3ZOxErKXLaYRz588a4aoJPdQ/2JKP34PIf1FwE0J8qW9OGzRHkkp81PC4yYRR5PupIUq1dF3p3eBYS260vZJKb5qqBuAOPkp4lyJcmf1FUN8Qookmh456++TAKINI5g9ka2nyBgkhzYT1oIpPiMA0rRwuRmnTZy0E4KAv7FoPNRabmpsvQcQ17KiI6Nz9ifccHZScT0o2tVlAgMBAAECggEAMwxie3qk6LvVvm5drZjI/J2JWdiJ3vfSh9CMjY97oBf5YCVtwPaG5PnDJLooDLIRID/LU9rvYWvWIG50AzAkC9y0h2Mp9iL6SFb2wpDvX/j6PYkfimYcXr1VXOzKZDnbxqX/Cjr6u92Xb7vVHry11SbMFSY1l3LbUUa6HS77pOYpA/OWu57EyoY9PCGepaC/2Vxj5uassHMzrf+jPslCZwQU9lO+c8+YNACI5D3x2VrII/6aLAEkIi62aF3OSnSfqyfKzn7BU0iDvPujX7+VBG/T6nVXRCbJ4eJBpB2sM8HyYYUOcz0I0Fs52UzfWQLyuqt+rwNYiBBoY8qGub+nywKBgQDx1dLG8OLcV0LJPLNn+PjXOwQi2p3yXdUr4ocPeaOcu6maJiIaaR6/JJJbN/K42aMt7xXC5fe7bCkyhZylZx4uEcfyDduxRSGcxQrb/HPRBlyrklOSQZXTHTTnnxyRJCs1D4g6AibMvLPal0QboUJWjZnN12J4QkaZvg8WelvLTwKBgQDUeuxmVufUvocvz8CgP6nZ0DeV0BucT5axubsPRf0ETqEo91MeAOVISEsEv+EYC22BbGNSzwgmOi+G/NrTqV+e34MqPKXRqqdERxkrfGAl/rnL3UfYpMnS2u3OHU5C3y6Lu2z+aNnYAwmivZ2131E66P/NoeQHhwrOVLSPkMsXCwKBgQDrAFK7mbeKUI2IyiC4p3sAg8voJrMXo1EUPSPryNNR6hbMwcOgEIidS+ehFsQaFvt4Fn36D8jlaxy5iJcJMCRmtkarFAZpw/j+w4di8HaHJ3yECUSGuo7iQN55OefjrtcBz98cJ50WlUTc5ON9Sf4R57YPDf8VR6odmlBFEpADBwKBgQCxsFJ9ivO4z9SRwTUfTd4mzp+NY0mTwGMPIXkzXp4mufLAJYSWtL0JY5uIz0XYK8ZZ02CEYao4/bO9OTtuglf6roQsECfDXOkgiiycVxi47XpG6DgrDjPRZ1AzbAKEnct5AzY0005J/NBUDioTbDur/indtyLQwLfisKeG39lW3QKBgQCZUS0uog8UATpUihM4uh5O+loTjXQZQRsKeuO0Ytmtwp4ZEwTUL86z3mTTE9WVYNoVwQwIPfMUvxMZ+jFTBrayvqftVIEvIlhatDtN5fuczZcOATKnKS5aKtJFFaUAdcCdOoeyoInorJ1n+3Jwlj5XSAKNtJOMKIbhPl14sEiwzA==
+    -----END PUBLIC KEY-----
