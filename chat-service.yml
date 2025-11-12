@@ -4,8 +4,7 @@ server:
 spring:
   application:
     name: chat-service
-  config:
-    import: optional:configserver:http://localhost:8086
+
   data:
     mongodb:
       host: localhost
